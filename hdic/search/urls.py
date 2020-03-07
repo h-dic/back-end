@@ -11,5 +11,7 @@ urlpatterns = [
     path('',views.index, name = "index"),
     path('searching/', views.searching, name="searching"),
     path('api',include(router.urls)),
-    path('test',views.test, name="test")
+    path('test',views.test, name="test"),
+    path('look/', views.InteractionAPIView.as_view())
+
 ]
