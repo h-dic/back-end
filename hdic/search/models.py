@@ -273,6 +273,12 @@ class Interaction(models.Model):
         return self.nom_plante
 
 
+class Drug(models.Model):
+    nom_drug = models.CharField(max_length=200)
+
+
+class Herb(models.Model):
+    nom_herb = models.CharField(max_length=200)
 
 
 
