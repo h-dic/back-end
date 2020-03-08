@@ -3,7 +3,6 @@ from .models import *
 from rest_framework import viewsets
 from .serializers import InteractionSerializer,HerbSerializer,DrugSerializer
 from rest_framework import filters, generics
-import json
 # Create your views here.
 
 def index(request):
@@ -19,7 +18,7 @@ def searching(request):
     return HttpResponse(interactions)
 
 
-def test(request):
+def save_interactions(request):
     Hedrine.load_drugs()
     Hedrine.load_herbs()
     username = "MDAOUPHARS"
@@ -63,9 +62,9 @@ def save_herbs_and_drugs(request):
     return HttpResponse("Ensemble plantes et médicaments enregistrés")
 
 class HerbsViewSet(viewsets.ModelViewSet):
-    queryset = Herb.objects.distinct().all()[0:201]
+    queryset = Herb.objects.distinct().all()
     serializer_class = HerbSerializer
 
 class DrugsViewSet(viewsets.ModelViewSet):
-    queryset = Drug.objects.distinct().all()[0:659]
+    queryset = Drug.objects.distinct().all()
     serializer_class = DrugSerializer
