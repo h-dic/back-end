@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from .models import *
 from rest_framework import viewsets
-from .serializers import InteractionSerializer
+from .serializers import InteractionSerializer,HerbSerializer,DrugSerializer
 from rest_framework import filters, generics
 import json
 # Create your views here.
@@ -51,3 +51,21 @@ class InteractionAPIView(generics.ListCreateAPIView):
     queryset = Interaction.objects.all()
     serializer_class = InteractionSerializer
 
+def save_herbs_and_drugs(request):
+    Hedrine.load_drugs()
+    Hedrine.load_herbs()
+    for drug_id in list(Hedrine.drugs.keys()):
+        drug = Drug(nom_drug = Hedrine.drugs[str(drug_id)])
+        drug.save()
+    for herb_id in list(Hedrine.herbs.keys()):
+        herb = Herb(nom_herb = Hedrine.herbs[str(herb_id)])
+        herb.save()
+    return HttpResponse("Ensemble plantes et médicaments enregistrés")
+
+class HerbsViewSet(viewsets.ModelViewSet):
+    queryset = Herb.objects.distinct().all()[0:201]
+    serializer_class = HerbSerializer
+
+class DrugsViewSet(viewsets.ModelViewSet):
+    queryset = Drug.objects.distinct().all()[0:659]
+    serializer_class = DrugSerializer

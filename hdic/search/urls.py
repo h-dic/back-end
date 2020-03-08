@@ -5,6 +5,8 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'Interactions', views.InteractionViewSet)
+router.register(r'Drugs', views.DrugsViewSet)
+router.register(r'Herbs', views.HerbsViewSet)
 
 
 urlpatterns = [
@@ -12,6 +14,7 @@ urlpatterns = [
     path('searching/', views.searching, name="searching"),
     path('api',include(router.urls)),
     path('test',views.test, name="test"),
-    path('look/', views.InteractionAPIView.as_view())
+    path('look/', views.InteractionAPIView.as_view()),
+    path('savedrugsherbs/', views.save_herbs_and_drugs)
 
 ]
