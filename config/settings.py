@@ -63,7 +63,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080',
 ]
 
-ROOT_URLCONF = 'hdic.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hdic.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database

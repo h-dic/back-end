@@ -32,7 +32,7 @@ def save_interactions(request):
                 interaction = Interaction(nom_plante = Hedrine.herbs[str(herb_id)], # revenir ici
                                           effets_plante = interactions["possibilities"][i]["herb_effect"],
                                           intensite_plante = interactions["possibilities"][i]["herb_intensity"],
-                                          nom_med = Hedrine.drugs[str(drug_id)], # revenir ici
+                                          nom_med = Hedrine.dr*.potgs[str(drug_id)], # revenir ici
                                           effets_med = interactions["possibilities"][i]["drug_effect"],
                                           intensite_med= interactions["possibilities"][i]["drug_intensity"],
                                           consequence = interactions["possibilities"][i]["consequence"] )

@@ -6,6 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+django = "*"
+djangorestframework = "*"
+requests = "*"
+bs4 = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"

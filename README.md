@@ -22,7 +22,8 @@ You can do GET request at `http://127.0.0.1:8000/search/look`
 
 Example : `http://127.0.0.1:8000/search/look/?search=Ail,CETUXIMAB`
 
-# Reading nom_plante in the shell :
+# Reading all the herbs names in the shell :
+
 ```
 from search.models import Interaction
 list(Interaction.objects.values('nom_plante').distinct())

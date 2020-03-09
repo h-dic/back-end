@@ -44,8 +44,8 @@ class Database:
 class Hedrine(Database):
     drugs = dict()
     herbs = dict()
-    herbs_file = "search/static/hedrine_herbs.json"
-    drugs_file = "search/static/hedrine_drugs.json"
+    herbs_file = "hdic/static/hedrine_herbs.json"
+    drugs_file = "hdic/static/hedrine_drugs.json"
     file_encoding = "utf8"
     param_herb = "data[htinteraction][herb_id]"
     param_drug = "data[dtinteraction][drug_id]"
